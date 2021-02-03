@@ -39,6 +39,7 @@ public class regestr extends AppCompatActivity {
         mPhone = findViewById(R.id.phone);
         mRegisterBtn = findViewById(R.id.registerbutton);
         mlogin =  findViewById(R.id.loginbtm);
+        mlogin =  findViewById(R.id.loginbtm);
 
 
 
