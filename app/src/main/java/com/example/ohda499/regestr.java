@@ -56,7 +56,7 @@ public class regestr extends AppCompatActivity {
 
                 helper help = new helper(fullname ,email,password,phone);
 
-                reference.setValue(help);
+                reference.child(phone).setValue(help);
 
 
             }
