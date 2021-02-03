@@ -10,6 +10,8 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 private ImageButton imageButtonh;
+private ImageButton imageButtonAdd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,20 @@ private ImageButton imageButtonh;
                 Intent intent = new Intent(MainActivity.this,regestr.class);
                 startActivity(intent);
             }
+
         });
+
+        imageButtonAdd = findViewById(R.id.imageButton8);
+        imageButtonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,add_item.class);
+                startActivity(intent);
+            }
+        });
+
+
+
 
     }
 }
