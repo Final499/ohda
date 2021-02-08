@@ -25,6 +25,13 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        log = findViewById(R.id.loginbutton);
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Login(v);
+            }
+        });
 
     }
     private boolean valiemail() {
@@ -59,32 +66,32 @@ public class Login extends AppCompatActivity {
 
     }
     public void Login (View view){
-        if (!validPass()|valiemail()){
+        if (!validPass()|!valiemail()){
             return;
         }else{
            isUser();
         }
-
-
     }
 
     private void isUser() {
         String useremail = mEmail.getText().toString().trim();
         String userpass = mPhone.getText().toString().trim();
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference("users");
-        Query check = reference.orderByChild("email").equalTo(userpass);
+        Query check = reference.orderByChild("email").equalTo(useremail);
         check.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     mEmail.setError(null);
 
-                    String passDB = snapshot.child(useremail).child("password").getValue(String.class);
+                    String passDB = snapshot.child(userpass).child("password").getValue(String.class);
                     if(passDB.equals(userpass)){
+                        mPhone.setError(null);
+
                         String nameDB = snapshot.child(useremail).child("fname").getValue(String.class);
                         String emailDB = snapshot.child(useremail).child("email").getValue(String.class);
                         String phoneDB = snapshot.child(useremail).child("phone").getValue(String.class);
-                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                        Intent intent = new Intent(Login.this,MainActivity.class);
                         intent.putExtra("fname",nameDB);
                         intent.putExtra("email",emailDB);
                         intent.putExtra("phone",phoneDB);
@@ -99,7 +106,7 @@ public class Login extends AppCompatActivity {
                 }
                 else {
                     mEmail.setError("no such User exist");
-                    mPhone.requestFocus();
+                    mEmail.requestFocus();
                 }
             }
 

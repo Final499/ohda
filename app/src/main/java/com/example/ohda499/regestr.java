@@ -75,6 +75,8 @@ public class regestr extends AppCompatActivity {
         helper help = new helper(fullname, email, password, phone);
 
         reference.child(password).setValue(help);
+        Intent intent = new Intent(regestr.this,MainActivity.class);
+        startActivity(intent);
 
     }
 
