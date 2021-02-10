@@ -23,6 +23,23 @@ public class add_item extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private Uri mImageUri;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
