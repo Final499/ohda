@@ -40,6 +40,7 @@ public class regestr extends AppCompatActivity {
         mPassword = findViewById(R.id.password);
         mPhone = findViewById(R.id.phone);
         mRegisterBtn = findViewById(R.id.registerbutton);
+        mRegisterBtn = findViewById(R.id.registerbutton);
 
 
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
