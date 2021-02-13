@@ -11,7 +11,6 @@ public class helper {
     public helper(String fname, String email,String phone ,String password) {
         this.fname = fname;
         this.email = email;
-
         this.password = password;
         this.phone = phone;
     }

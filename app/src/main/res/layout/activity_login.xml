@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Login">
     <ImageButton
         android:id="@+id/imageButton3"
@@ -83,9 +84,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.892" />
 
     <EditText
+
         android:id="@+id/password"
         android:layout_width="290dp"
         android:layout_height="60dp"
@@ -94,13 +98,16 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="date|text"
+
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email"
-        app:layout_constraintVertical_bias="0.054" />
+        app:layout_constraintVertical_bias="0.054"
+
+        />
 
     <Button
         android:id="@+id/loginbutton"
