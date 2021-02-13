@@ -9,35 +9,27 @@ import android.content.Intent;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-private ImageButton imageButtonh;
-private ImageButton imageButtonAdd;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        imageButtonh = findViewById(R.id.imageButton3);
-        imageButtonh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,regestr.class);
-                startActivity(intent);
-            }
-
-        });
-
-        imageButtonAdd = findViewById(R.id.imageButton8);
-        imageButtonAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,add_item.class);
-                startActivity(intent);
-            }
-        });
-
-
-
+          getSupportActionBar().hide();
+          Thread thread = new Thread(){
+              @Override
+              public void run() {
+                  try {
+                      sleep(3000);
+                      Intent intent = new Intent(getApplicationContext(),homebage.class);
+                      startActivity(intent);
+                      finish();
+                  } catch (InterruptedException e) {
+                      e.printStackTrace();
+                  }
+              }
+          };
+         thread.start();
 
     }
 }

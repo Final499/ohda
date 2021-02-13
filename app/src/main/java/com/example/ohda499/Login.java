@@ -25,6 +25,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mEmail = findViewById(R.id.email);
+        mPhone = findViewById(R.id.password);
         log = findViewById(R.id.loginbutton);
         log.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,24 +36,24 @@ public class Login extends AppCompatActivity {
         });
 
     }
-    private boolean valiemail() {
-        String valu = mEmail.getEditableText().toString().trim();
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+  //  private boolean valiemail() {
+    //    String valu = mEmail.getEditableText().toString().trim();
+      //  String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-        if (valu.isEmpty()) {
-            mEmail.setError("Email is required ! ");
-            return false;
-        } else if (!valu.matches(emailPattern)) {
-            mEmail.setError("Invalid email address ! ");
-            return false;
+    //    if (valu.isEmpty()) {
+     //       mEmail.setError("Email is required ! ");
+    //        return false;
+    //    } else if (!valu.matches(emailPattern)) {
+     //       mEmail.setError("Invalid email address ! ");
+      //      return false;
 
-        } else {
-            mEmail.setError(null);
+     //   } else {
+      //      mEmail.setError(null);
 
-            return true;
-        }
+         //   return true;
+      //  }
 
-    }
+   // }
     private boolean validPass(){
         String valu = mPhone.getEditableText().toString().trim();
 
@@ -66,31 +68,31 @@ public class Login extends AppCompatActivity {
 
     }
     public void Login (View view){
-        if (!validPass()|!valiemail()){
-            return;
-        }else{
+     //   if (!validPass()|!valiemail()){
+      //      return;
+     //   }else{
            isUser();
-        }
+      //  }
     }
 
     private void isUser() {
         String useremail = mEmail.getText().toString().trim();
         String userpass = mPhone.getText().toString().trim();
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference("users");
-        Query check = reference.orderByChild("email").equalTo(useremail);
+        Query check = reference.orderByChild("password").equalTo(useremail);
         check.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     mEmail.setError(null);
 
-                    String passDB = snapshot.child(userpass).child("password").getValue(String.class);
-                    if(passDB.equals(userpass)){
+                    String phoneDB = snapshot.child(userpass).child("phone").getValue(String.class);
+                    if(phoneDB.equals(userpass)){
                         mPhone.setError(null);
 
                         String nameDB = snapshot.child(useremail).child("fname").getValue(String.class);
                         String emailDB = snapshot.child(useremail).child("email").getValue(String.class);
-                        String phoneDB = snapshot.child(useremail).child("phone").getValue(String.class);
+                        String  passDB = snapshot.child(useremail).child("password").getValue(String.class);
                         Intent intent = new Intent(Login.this,MainActivity.class);
                         intent.putExtra("fname",nameDB);
                         intent.putExtra("email",emailDB);

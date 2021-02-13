@@ -42,13 +42,16 @@ public class regestr extends AppCompatActivity {
         mRegisterBtn = findViewById(R.id.registerbutton);
 
 
+
+
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rootnode = FirebaseDatabase.getInstance();
                 reference = rootnode.getReference("users");
                 registerUser(v);
-
+                System.out.println("-------------------------------------------------------------------------------------");
+                System.out.println(mPassword);
 
             }
         });
@@ -118,7 +121,7 @@ public class regestr extends AppCompatActivity {
         if (valu.isEmpty()) {
             mPassword.setError("Phone is required ! ");
             return false;
-        } else if (mPassword.length() == 10) {
+        } else if (mPassword.length() != 10) {
             mPassword.setError("Phone must be 10 numbers ! ");
             return false;
         } else {
