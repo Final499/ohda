@@ -19,15 +19,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/button_choose_image" />
+        android:layout_toEndOf="@+id/button_choose_image"
+        android:hint="Enter file name" />
 
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
         android:layout_above="@id/progress_bar"
         android:layout_below="@id/edit_text_file_name"
-        android:layout_marginTop="16dp" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="358dp"
+        android:layout_toStartOf="@+id/image_view3" />
+
+    <ImageView
+        android:id="@+id/image_view2"
+        android:layout_width="111dp"
+        android:layout_height="185dp"
+        android:layout_above="@id/progress_bar"
+        android:layout_below="@id/edit_text_file_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="360dp" />
+
+    <ImageView
+        android:id="@+id/image_view3"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/progress_bar"
+        android:layout_below="@id/edit_text_file_name"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="361dp"
+        android:layout_toStartOf="@+id/image_view2" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -57,19 +85,5 @@
         android:gravity="center"
         android:text="Show Uploads"
         android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="134dp"
-        android:layout_height="86dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="349dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="312dp"
-        android:text="TextView" />
 
 </RelativeLayout>
