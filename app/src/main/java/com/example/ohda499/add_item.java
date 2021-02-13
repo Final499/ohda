@@ -6,13 +6,18 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class add_item extends AppCompatActivity {
+public class add_item extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private static final int PICK_IMAGE_REQUEST=1;
     private static final int PICK_IMAGE_REQUEST2=2;
@@ -27,6 +32,7 @@ public class add_item extends AppCompatActivity {
     private Uri mImageUri;
     private Uri mImageUri2;
     private Uri mImageUri3;
+    private Spinner mspinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +42,16 @@ public class add_item extends AppCompatActivity {
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
         mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
-        mEditTextFileName = findViewById(R.id.edit_text_file_name);
         mImageView = findViewById(R.id.image_view);
         mImageView2 = findViewById(R.id.image_view2);
         mImageView3 = findViewById(R.id.image_view3);
         mProgressBar = findViewById(R.id.progress_bar);
+         mspinner=findViewById(R.id.spinner);
 
+        ArrayAdapter<CharSequence > adapter= ArrayAdapter.createFromResource(this,R.array.catgory, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mspinner.setAdapter(adapter);
+        mspinner.setOnItemSelectedListener(this);
 
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,5 +97,16 @@ public class add_item extends AppCompatActivity {
                 && data != null && data.getData() != null){
             mImageUri3 = data.getData();
             mImageView3.setImageURI(mImageUri3);}
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(),text, Toast.LENGTH_SHORT);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

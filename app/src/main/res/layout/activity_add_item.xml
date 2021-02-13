@@ -10,52 +10,59 @@
     <Button
         android:id="@+id/button_choose_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="16dp"
         android:text="Choose file" />
 
 
-    <EditText
-        android:id="@+id/edit_text_file_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/button_choose_image"
-        android:hint="Enter file name" />
+    <ImageView
+        android:id="@+id/image_view3"
+        android:layout_width="111dp"
+        android:layout_height="185dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="97dp"
+        android:layout_marginEnd="1dp"
+        android:layout_toStartOf="@+id/image_view2" />
 
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/progress_bar"
-        android:layout_below="@id/edit_text_file_name"
+        android:layout_width="110dp"
+        android:layout_height="183dp"
+        android:layout_below="@+id/button_choose_image"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="358dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="3dp"
         android:layout_toStartOf="@+id/image_view3" />
 
     <ImageView
         android:id="@+id/image_view2"
         android:layout_width="111dp"
         android:layout_height="185dp"
-        android:layout_above="@id/progress_bar"
-        android:layout_below="@id/edit_text_file_name"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="360dp" />
 
-    <ImageView
-        android:id="@+id/image_view3"
-        android:layout_width="104dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/progress_bar"
-        android:layout_below="@id/edit_text_file_name"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="361dp"
-        android:layout_toStartOf="@+id/image_view2" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="97dp"
+        android:layout_marginEnd="16dp" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="391dp"
+        android:layout_height="185dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="26dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Add You'r Description"
+        android:inputType="textMultiLine" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -85,5 +92,17 @@
         android:gravity="center"
         android:text="Show Uploads"
         android:textSize="14sp" />
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@+id/button_choose_image" />
 
 </RelativeLayout>
