@@ -61,6 +61,7 @@ public class regestr extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 rootnode = FirebaseDatabase.getInstance();
+                //reference = rootnode.getReference("users").child("054");
                 reference = rootnode.getReference("users");
                 registerUser(v);
                 System.out.println("-------------------------------------------------------------------------------------");

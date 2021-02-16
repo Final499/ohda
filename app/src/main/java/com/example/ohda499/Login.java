@@ -20,7 +20,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
-    EditText mPassword, mPhone;
+    EditText mPassword, mPhoneq;
         Button log;
         TextView noaccount;
 
@@ -28,8 +28,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mPassword = findViewById(R.id.email);
-        mPhone = findViewById(R.id.password);
+        mPhoneq = findViewById(R.id.email);
+        mPassword = findViewById(R.id.password);
         log = findViewById(R.id.loginbutton);
         noaccount = findViewById(R.id.haveAcount);
         noaccount.setOnClickListener(new View.OnClickListener() {
@@ -55,30 +55,30 @@ public class Login extends AppCompatActivity {
 
     }
     private boolean validPhone() {
-        String valu = mPassword.getEditableText().toString().trim();
+        String valu = mPhoneq.getEditableText().toString().trim();
 
         if (valu.isEmpty()) {
-            mPassword.setError("Phone is required ! ");
+            mPhoneq.setError("Phone is required ! ");
             return false;
-        } else if (mPassword.length() != 10) {
-            mPassword.setError("Phone must be 10 numbers ! ");
+        } else if (mPhoneq.length() != 10) {
+            mPhoneq.setError("Phone must be 10 numbers ! ");
             return false;
         } else {
 
-            mPassword.setError(null);
+            mPhoneq.setError(null);
 
             return true;
         }
     }
     private boolean validPass(){
-        String valu = mPhone.getEditableText().toString().trim();
+        String valu = mPassword.getEditableText().toString().trim();
 
         if(valu.isEmpty()){
-            mPhone.setError("Password is required ! ");
+            mPassword.setError("Password is required ! ");
             return false;
         }
         else{
-            mPhone.setError(null);
+            mPassword.setError(null);
             return true;
         }
 
@@ -94,34 +94,40 @@ public class Login extends AppCompatActivity {
     private void isUser() {
 
 
-     String useremail = mPassword.getText().toString().trim();
-     String userpass = mPhone.getText().toString().trim();
-     DatabaseReference reference  = FirebaseDatabase.getInstance().getReference().child("users").child(useremail);
-     //Query check = FirebaseDatabase.getInstance().getReference("users").orderByChild("phone").equalTo(useremail);
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+     String userphone = mPhoneq.getText().toString().trim();
+     String userpass = mPassword.getText().toString().trim();
+     DatabaseReference reference  = FirebaseDatabase.getInstance().getReference("users");
+     Query check = reference.orderByChild("phone").equalTo(userphone);
+        check.addListenerForSingleValueEvent(new ValueEventListener() {
          @Override
          public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-             String emailDB = snapshot.child("phone").getValue().toString();
-             String phoneDB = snapshot.child("password").getValue().toString();
-             System.out.println(emailDB);
-             System.out.println("-----------------------------------");
+
 
              if (snapshot.exists()) {
+                 mPassword.setError(null);
+                 String passDB = snapshot.child(userphone).child("password").getValue(String.class);
 
+                 if (passDB.equals(userpass)) {
+                     mPassword.setError(null);
+                     String emailDB = snapshot.child(userphone).child("email").getValue(String.class);
+                     String phoneDB = snapshot.child(userphone).child("phone").getValue(String.class);
+                     String nameDB = snapshot.child(userphone).child("fname").getValue(String.class);
 
-                 if (phoneDB.equals(userpass)) {
-                     mPhone.setError(null);
-                     Intent intent = new Intent(Login.this, homebage.class);
+                     Intent intent = new Intent(getApplicationContext(), homebage.class);
+           intent.putExtra("email",emailDB);
+           intent.putExtra("fname",nameDB);
+           intent.putExtra("password",passDB);
+           intent.putExtra("phone",phoneDB);
                      startActivity(intent);
                      finish();
 
                  } else {
-                     mPhone.setError("Wrong Password");
-                     mPhone.requestFocus();
+                     mPassword.setError("Wrong Password");
+                     mPassword.requestFocus();
                  }
              }else {
-                 Toast.makeText(Login.this, "No user",Toast.LENGTH_SHORT).show();
+                 mPhoneq.setError("No such user exist");
              }
          }
 
