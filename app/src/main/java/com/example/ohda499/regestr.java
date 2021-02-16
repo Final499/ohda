@@ -2,6 +2,7 @@ package com.example.ohda499;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,10 +25,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class regestr extends AppCompatActivity {
     EditText mFullName, mEmail, mPassword, mPhone;
     Button mRegisterBtn, mlogin;
-    FirebaseAuth fAuth;
-    ProgressBar progressBar;
+
     FirebaseDatabase rootnode;
     DatabaseReference reference;
+    TextView noaccount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,17 @@ public class regestr extends AppCompatActivity {
         mRegisterBtn = findViewById(R.id.registerbutton);
         mRegisterBtn = findViewById(R.id.registerbutton);
 
+        noaccount = findViewById(R.id.haveAcount);
+        noaccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // FragmentTransaction Frag = getSupportFragmentManager().beginTransaction();
+                //    Frag.replace(R.id.loginmain,new profiled()).commit();
+                Intent intent = new Intent(regestr.this, Login.class);
+                startActivity(intent);
 
+            }
+        });
 
 
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
@@ -56,15 +68,8 @@ public class regestr extends AppCompatActivity {
 
             }
         });
-        mlogin = findViewById(R.id.loginbtm);
 
-        mlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(regestr.this,Login.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     public void registerUser(View view) {
@@ -79,8 +84,11 @@ public class regestr extends AppCompatActivity {
         helper help = new helper(fullname, email, password, phone);
 
         reference.child(password).setValue(help);
-        Intent intent = new Intent(regestr.this,MainActivity.class);
-        startActivity(intent);
+        Intent intent = new Intent(regestr.this,homebage.class);
+       startActivity(intent);
+        finish();
+     //   FragmentTransaction Frag = getSupportFragmentManager().beginTransaction();
+       // Frag.replace(R.id.regesternmain,new home()).commit();
 
     }
 

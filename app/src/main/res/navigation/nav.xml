@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/homef">
+
+    <fragment
+        android:id="@+id/additem"
+        android:name="com.example.ohda499.additem"
+        android:label="fragment_additem"
+        tools:layout="@layout/fragment_additem" />
+    <fragment
+        android:id="@+id/homef"
+        android:name="com.example.ohda499.home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/profiled"
+        android:name="com.example.ohda499.profiled"
+        android:label="fragment_profiled"
+        tools:layout="@layout/fragment_profiled" />
+    <fragment
+        android:id="@+id/catagorysearch"
+        android:name="com.example.ohda499.catagorysearch"
+        android:label="fragment_catagorysearch"
+        tools:layout="@layout/fragment_catagorysearch" />
+</navigation>
