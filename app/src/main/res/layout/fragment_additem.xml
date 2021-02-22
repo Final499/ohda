@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,108 +7,214 @@
     android:background="@drawable/newup"
     tools:context=".additem">
 
-    <Button
-        android:id="@+id/button_choose_image"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="16dp"
-        android:text="Choose file" />
-
-
-    <EditText
-        android:id="@+id/fileName"
-        android:layout_width="238dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="15dp"
-        android:layout_toEndOf="@+id/button_choose_image"
-        android:hint="Enter file name" />
-
-    <ImageView
-        android:id="@+id/image_view3"
-        android:layout_width="111dp"
-        android:layout_height="185dp"
-
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="97dp"
-        android:layout_marginEnd="1dp"
-        android:layout_toStartOf="@+id/image_view2" />
-
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="110dp"
-        android:layout_height="183dp"
-        android:layout_below="@+id/button_choose_image"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="3dp"
-        android:layout_toStartOf="@+id/image_view3" />
-
-    <ImageView
-        android:id="@+id/image_view2"
-        android:layout_width="111dp"
-        android:layout_height="185dp"
-
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="97dp"
-        android:layout_marginEnd="16dp" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="391dp"
-        android:layout_height="185dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="292dp"
-        android:layout_marginEnd="26dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Add You'r Description"
-        android:inputType="textMultiLine" />
-
-    <Button
-        android:id="@+id/button_upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="151dp"
-        android:layout_marginBottom="77dp"
-        android:text="Upload" />
-
-    <TextView
-        android:id="@+id/text_view_show_uploads"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button_upload"
-        android:layout_alignBottom="@+id/button_upload"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="-2dp"
-        android:layout_toEndOf="@+id/button_upload"
-        android:gravity="center"
-        android:text="Show Uploads"
-        android:textSize="14sp" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button_upload"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginBottom="16dp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:gravity="center"
 
 
-</RelativeLayout>
+
+            android:text="Pleast select the type of the Item" />
+
+        <Button
+            android:id="@+id/Sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:paddingTop="10dp"
+            android:text="Sport" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/Fa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#ffffff"
+            android:textColor="@color/black"
+
+            android:text="Farming" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:paddingTop="2dp"
+            android:text="Electronics" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:paddingTop="2dp"
+            android:text="Carpentry" />
+        <TextView
+            android:id="@+id/textVie7w"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:paddingTop="2dp"
+            android:text="Plumber" />
+        <TextView
+            android:id="@+id/text5View"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:paddingTop="2dp"
+            android:text="Furniture" />
+        <TextView
+            android:id="@+id/text4View"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:paddingTop="2dp"
+            android:text="Cooking" />
+        <TextView
+            android:id="@+id/te4xtView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:text="Trips" />
+        <TextView
+            android:id="@+id/te3xtView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:text="Cars" />
+        <TextView
+            android:id="@+id/t4extView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:text="Medical" />
+        <TextView
+            android:id="@+id/textdView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:text="Animals" />
+        <TextView
+            android:id="@+id/te4xtVie3w"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:backgroundTint="#ffffff"
+            android:text="Others" />
+
+    </LinearLayout>
+</ScrollView>

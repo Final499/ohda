@@ -119,6 +119,7 @@ public class Login extends AppCompatActivity {
            intent.putExtra("fname",nameDB);
            intent.putExtra("password",passDB);
            intent.putExtra("phone",phoneDB);
+         //  System.out.println(phoneDB);
                      startActivity(intent);
                      finish();
 
