@@ -44,22 +44,10 @@ import com.squareup.picasso.Picasso;
  * create an instance of this fragment.
  */
 public class additem extends Fragment {
-    private static final int PICK_IMAGE_REQUEST=1;
-    private static final int PICK_IMAGE_REQUEST2=2;
-    private static final int PICK_IMAGE_REQUEST3=3;
-    private Button mButtonChooseImage;
-    private Button mButtonUpload;
-    private TextView mTextViewShowUploads;
-    private  EditText editTextdes;
-    private EditText fileNamelauout;
-    private ImageView mImageView, mImageView2,mImageView3;
-    private ProgressBar mProgressBar;
-    private String st1;
-    private Uri mImageUri;
-    private Uri mImageUri2;
-    private Uri mImageUri3;
-    private Spinner mspinner;
 
+    private Button sport , farming ,electronics,Carpentry,Plumber,furniture,cooking,Trips,cars,medical,Animals,others;
+
+String  st1;
 
     private DatabaseReference root ;
     private StorageReference reference ;
@@ -108,104 +96,166 @@ public class additem extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_additem, container, false);
-        mButtonChooseImage = v.findViewById(R.id.button_choose_image);
-        mButtonUpload = v.findViewById(R.id.button_upload);
-        editTextdes = v.findViewById(R.id.editTextTextMultiLine);
-        mTextViewShowUploads = v.findViewById(R.id.text_view_show_uploads);
-        mImageView = v.findViewById(R.id.image_view);
-        mImageView2 = v.findViewById(R.id.image_view2);
-        mImageView3 = v.findViewById(R.id.image_view3);
-        mProgressBar = v.findViewById(R.id.progress_bar);
-        fileNamelauout = v.findViewById(R.id.fileName);
-        mProgressBar.setVisibility(View.INVISIBLE);
 
-        mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
+        sport = v.findViewById(R.id.Sp);
+        farming = v.findViewById(R.id.Fa);
+        electronics = v.findViewById(R.id.button6);
+        Carpentry = v.findViewById(R.id.button7);
+        Plumber = v.findViewById(R.id.button8);
+        furniture = v.findViewById(R.id.button9);
+        cooking = v.findViewById(R.id.button10);
+        Trips = v.findViewById(R.id.button11);
+        cars = v.findViewById(R.id.button12);
+        medical = v.findViewById(R.id.button13);
+        Animals = v.findViewById(R.id.button14);
+        others = v.findViewById(R.id.button15);
+
+        sport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gall = new Intent();
-                gall.setAction(Intent.ACTION_GET_CONTENT);
-                gall.setType("image/*");
-                startActivityForResult(gall,2);
-
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Sport";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });
+        farming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Farming";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });
+        electronics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Electronics";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });
+        Carpentry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Carpentry";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });
+        Plumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Plumber";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });
+        furniture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Furniture";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });  cooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Cooking";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });  Trips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Trips";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });  cars.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Cars";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });  medical.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Medical";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });  Animals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Animals";
+                intent.putExtra("1",spo);
+                startActivity(intent);
+            }
+        });  others.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = getActivity().getIntent();
+                st1 =in.getStringExtra("phone");
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                intent.putExtra("phone",st1);
+                String spo="Others";
+                intent.putExtra("1",spo);
+                startActivity(intent);
             }
         });
 
-        mButtonUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mImageUri !=null){
-                    uploadeTofirbase(mImageUri);
 
-                }else{
-                    Toast.makeText(getActivity(), "Pleas Select Image", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
 
     //    mStorage = FirebaseStorage.getInstance().getReference("users").child(st1);
       //  mdatabaseref = FirebaseDatabase.getInstance().getReference("users").child(st1);
 
 return v;
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode== 2 && resultCode == Activity.RESULT_OK && data !=null  ){
-            mImageUri = data.getData();
-            mImageView.setImageURI(mImageUri);
-
-        }
-
-    }
-    private void uploadeTofirbase(Uri uri){
-        Intent in = getActivity().getIntent();
-        st1 =in.getStringExtra("phone");
-
-        root = FirebaseDatabase.getInstance().getReference("users").child(st1);
-          reference = FirebaseStorage.getInstance().getReference();
-        final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
-        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        String descrabtion = editTextdes.getEditableText().toString().trim();
-                        String filname = fileNamelauout.getEditableText().toString().trim();
-                        Upload upload = new Upload(uri.toString(),descrabtion,filname);
-                        //generat key
-                        String uplodId = root.push().getKey();
-                        root.child(uplodId).setValue(upload);
-                        mProgressBar.setVisibility(View.INVISIBLE);
-                        Toast.makeText(getActivity(), "Uploaded Successfully ", Toast.LENGTH_SHORT).show();
-
-
-                    }
-                });
-
-            }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-mProgressBar.setVisibility(View.VISIBLE);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                mProgressBar.setVisibility(View.INVISIBLE);
-                Toast.makeText(getActivity(), "Uploading Failed", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-    }
-
-    private String getFileExtension(Uri muri){
-        ContentResolver cr = getActivity().getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-
-        return  mime.getExtensionFromMimeType(cr.getType(muri));
     }
 
 
