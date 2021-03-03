@@ -1,41 +1,17 @@
 package com.example.ohda499;
 
-import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import android.os.Handler;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.MimeTypeMap;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
-import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
 
 /**
@@ -45,7 +21,7 @@ import com.squareup.picasso.Picasso;
  */
 public class additem extends Fragment {
 
-    private Button sport , farming ,electronics,Carpentry,Plumber,furniture,cooking,Trips,cars,medical,Animals,others;
+    private Button sport , farming ,electronics,Carpentry,plumbing,furniture,kitchen_utensil,camping,cars, medical_miscellaneous, animal_supplies,others;
 
 String  st1;
 
@@ -97,18 +73,18 @@ String  st1;
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_additem, container, false);
 
-        sport = v.findViewById(R.id.Sp);
-        farming = v.findViewById(R.id.Fa);
-        electronics = v.findViewById(R.id.button6);
-        Carpentry = v.findViewById(R.id.button7);
-        Plumber = v.findViewById(R.id.button8);
-        furniture = v.findViewById(R.id.button9);
-        cooking = v.findViewById(R.id.button10);
-        Trips = v.findViewById(R.id.button11);
-        cars = v.findViewById(R.id.button12);
-        medical = v.findViewById(R.id.button13);
-        Animals = v.findViewById(R.id.button14);
-        others = v.findViewById(R.id.button15);
+        sport = v.findViewById(R.id.sportsb);
+        farming = v.findViewById(R.id.farmingb);
+        electronics = v.findViewById(R.id.electronicsb);
+        Carpentry = v.findViewById(R.id.carpentryb);
+        plumbing = v.findViewById(R.id.plumbingb);
+        furniture = v.findViewById(R.id.furnitureb);
+        kitchen_utensil = v.findViewById(R.id.kitchen_utensilb);
+        camping = v.findViewById(R.id.campingb);
+        cars = v.findViewById(R.id.carb);
+        medical_miscellaneous = v.findViewById(R.id.medical_miscellaneousb);
+        animal_supplies = v.findViewById(R.id.animal_suppliesb);
+        others = v.findViewById(R.id.othersb);
 
         sport.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,7 +134,7 @@ String  st1;
                 startActivity(intent);
             }
         });
-        Plumber.setOnClickListener(new View.OnClickListener() {
+        plumbing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
@@ -181,7 +157,7 @@ String  st1;
                 intent.putExtra("1",spo);
                 startActivity(intent);
             }
-        });  cooking.setOnClickListener(new View.OnClickListener() {
+        });  kitchen_utensil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
@@ -192,7 +168,7 @@ String  st1;
                 intent.putExtra("1",spo);
                 startActivity(intent);
             }
-        });  Trips.setOnClickListener(new View.OnClickListener() {
+        });  camping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
@@ -214,7 +190,7 @@ String  st1;
                 intent.putExtra("1",spo);
                 startActivity(intent);
             }
-        });  medical.setOnClickListener(new View.OnClickListener() {
+        });  medical_miscellaneous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
@@ -225,7 +201,7 @@ String  st1;
                 intent.putExtra("1",spo);
                 startActivity(intent);
             }
-        });  Animals.setOnClickListener(new View.OnClickListener() {
+        });  animal_supplies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
