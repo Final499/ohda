@@ -48,7 +48,7 @@ public class cataadd extends AppCompatActivity {
     private Button mButtonUpload;
     private TextView mTextViewShowUploads;
     private  EditText editTextdes;
-    private EditText fileNamelauout;
+    private EditText fileNamelauout , type1;
     private ImageView mImageView, mImageView2,mImageView3;
     private ProgressBar mProgressBar;
     private String st1;
@@ -67,10 +67,8 @@ public class cataadd extends AppCompatActivity {
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
         editTextdes = findViewById(R.id.editTextTextMultiLine);
-        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
         mImageView = findViewById(R.id.image_view);
-        mImageView2 = findViewById(R.id.image_view2);
-        mImageView3 = findViewById(R.id.image_view3);
+        type1 = findViewById(R.id.addtype);
         mProgressBar = findViewById(R.id.progress_bar);
         fileNamelauout = findViewById(R.id.fileName);
         mProgressBar.setVisibility(View.INVISIBLE);
@@ -114,7 +112,7 @@ public class cataadd extends AppCompatActivity {
         st1 =getIntent().getStringExtra("phone");
         System.out.println(st1);
 
-        root = FirebaseDatabase.getInstance().getReference("users").child(st1);
+        root = FirebaseDatabase.getInstance().getReference("items");
         reference = FirebaseStorage.getInstance().getReference();
         final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
         fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -125,47 +123,48 @@ public class cataadd extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         String descrabtion = editTextdes.getEditableText().toString().trim();
                         String filname = fileNamelauout.getEditableText().toString().trim();
-                     //   Upload upload = new Upload(uri.toString(),descrabtion,filname);
+                        String type = type1.getEditableText().toString().trim();
+                        //   Upload upload = new Upload(uri.toString(),descrabtion,filname);
                         String catagory =getIntent().getStringExtra("1");
-                       System.out.println(catagory);
-                       System.out.println(st1);
+                        System.out.println(catagory);
+                        System.out.println(st1);
 
                         switch (catagory){
                             case "Sport":
-                                 upload = new Upload(uri.toString(),descrabtion,filname,catagory);
-                                 break;
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
+                                break;
                             case "Farming":
-                                 upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                             case "Electronics":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                             case "Carpentry":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                             case "Plumber":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                             case "Furniture":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                             case "Cooking":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                             case "Trips":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                             case "Cars":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                             case "Medical":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                             case "Animals":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                             case "Others":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
                                 break;
                         }
                         //generat key

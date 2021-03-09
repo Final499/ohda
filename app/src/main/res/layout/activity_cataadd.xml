@@ -29,35 +29,13 @@
         android:hint="Enter file name" />
 
     <ImageView
-        android:id="@+id/image_view3"
-        android:layout_width="111dp"
-        android:layout_height="185dp"
-
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="97dp"
-        android:layout_marginEnd="1dp"
-        android:layout_toStartOf="@+id/image_view2" />
-
-    <ImageView
         android:id="@+id/image_view"
         android:layout_width="110dp"
         android:layout_height="183dp"
         android:layout_below="@+id/button_choose_image"
         android:layout_alignParentStart="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="3dp"
-        android:layout_toStartOf="@+id/image_view3" />
-
-    <ImageView
-        android:id="@+id/image_view2"
-        android:layout_width="111dp"
-        android:layout_height="185dp"
-
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="97dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginTop="30dp" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
@@ -84,19 +62,7 @@
         android:layout_marginBottom="77dp"
         android:text="Upload" />
 
-    <TextView
-        android:id="@+id/text_view_show_uploads"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button_upload"
-        android:layout_alignBottom="@+id/button_upload"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="-2dp"
-        android:layout_toEndOf="@+id/button_upload"
-        android:gravity="center"
-        android:text="Show Uploads"
-        android:textSize="14sp" />
+
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -107,5 +73,19 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="7dp"
         android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/addtype"
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="603dp"
+        android:layout_toEndOf="@+id/image_view"
+        android:ems="10"
+        android:hint="To Borrwo or Donat"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>

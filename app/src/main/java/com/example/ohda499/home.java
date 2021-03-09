@@ -1,12 +1,34 @@
 package com.example.ohda499;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +36,15 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class home extends Fragment {
+    private RecyclerView recyclerView;
+    private ArrayList<masseges> massegeslist;
+    // private  myAdabter adapter;
+    private Context mcontext;
+    private DatabaseReference databaseReference ;
+    FirebaseRecyclerOptions<masseges> options;
+    FirebaseRecyclerAdapter<masseges,myAdabter> adapter;
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +90,68 @@ public class home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View v = inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerView = (RecyclerView)v.findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("items");
+        options = new FirebaseRecyclerOptions.Builder<masseges>().setQuery(databaseReference,masseges.class).build();
+        adapter = new FirebaseRecyclerAdapter<masseges, myAdabter>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull myAdabter holder, int position, @NonNull masseges model) {
+                Picasso.get().load(model.getmImageUrl()).into(holder.i1, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Toast.makeText(getActivity().getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+
+                holder.filename.setText(model.getFilename());
+                holder.type.setText(model.getType());
+
+
+            }
+
+            @NonNull
+            @Override
+            public myAdabter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.masseg_item,parent,false);
+
+                return new myAdabter(view);
+            }
+        };
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(),1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
+        return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (adapter!=null)
+            adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        if (adapter!=null)
+            adapter.stopListening();
+        super.onStop();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adapter!=null)
+            adapter.startListening();
+
     }
 }
