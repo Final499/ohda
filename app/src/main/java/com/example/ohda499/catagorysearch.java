@@ -3,12 +3,26 @@ package com.example.ohda499;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SearchView;
+import android.widget.Toast;
+
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,18 +30,22 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class catagorysearch extends Fragment {
-
+DatabaseReference ref;
+ArrayList<masseges> list;
+RecyclerView recyclerView;
+SearchView searchView;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Button sport;
-    private Button farming;
+
 
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
 
     public catagorysearch() {
         // Required empty public constructor
@@ -58,6 +76,59 @@ public class catagorysearch extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (ref!=null){
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists() ){
+                        list=new ArrayList<>();
+                        for(DataSnapshot ds : snapshot.getChildren()){
+                        list.add(ds.getValue(masseges.class));
+                        }
+                        AdapterClass adapterClass=new AdapterClass(list);
+                        recyclerView.setAdapter(adapterClass);
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(getActivity() ,error.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        if (searchView!=null){
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    search(s);
+                    return true;
+                }
+            });
+        }
+    }
+
+    private void search(String str){
+        ArrayList<masseges> myLest = new ArrayList<>();
+        for (masseges object : list){
+            if (object.getDescription().toLowerCase().contains(str.toLowerCase())){
+
+                myLest.add(object);
+            }
+        }
+        AdapterClass adapterClass =new AdapterClass(myLest);
+        recyclerView.setAdapter(adapterClass);
     }
 
     @Override
@@ -66,9 +137,16 @@ public class catagorysearch extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_catagorysearch, container, false);
 
+        ref = FirebaseDatabase.getInstance().getReference().child("items");
+
+
 
 
 
         return v;
     }
+
+
+
+
 }
