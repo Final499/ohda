@@ -17,12 +17,14 @@ import java.util.ArrayList;
 public class myAdabter extends RecyclerView.ViewHolder {
     public    TextView type , filename;
     public ImageView i1;
+    View v;
 
     public myAdabter(@NonNull View itemView) {
         super(itemView);
         type = (TextView)itemView.findViewById(R.id.type);
         filename = (TextView)itemView.findViewById(R.id.namef);
         i1 = (ImageView)itemView.findViewById(R.id.imageview);
+        v=itemView;
 
 
     }

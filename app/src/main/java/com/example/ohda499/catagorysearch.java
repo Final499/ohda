@@ -65,8 +65,7 @@ public class catagorysearch extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_catagorysearch, container, false);
-        sport=v.findViewById(R.id.button);
-        farming=v.findViewById(R.id.button2);
+
 
 
 

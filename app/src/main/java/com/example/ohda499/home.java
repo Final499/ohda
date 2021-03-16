@@ -1,6 +1,7 @@
 package com.example.ohda499;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -98,6 +99,8 @@ public class home extends Fragment {
         adapter = new FirebaseRecyclerAdapter<masseges, myAdabter>(options) {
             @Override
             protected void onBindViewHolder(@NonNull myAdabter holder, int position, @NonNull masseges model) {
+
+
                 Picasso.get().load(model.getmImageUrl()).into(holder.i1, new Callback() {
                     @Override
                     public void onSuccess() {
@@ -112,9 +115,20 @@ public class home extends Fragment {
                 });
 
 
+
                 holder.filename.setText(model.getFilename());
                 holder.type.setText(model.getType());
 
+
+                holder.v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(),ViewActivity.class);
+                        intent.putExtra("fname",getRef(position).getKey());
+                        startActivity(intent);
+
+                    }
+                });
 
             }
 

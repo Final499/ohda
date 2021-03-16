@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OHDA499">
-        <activity android:name=".cataadd"></activity>
+        <activity android:name=".ViewActivity"></activity>
+        <activity android:name=".cataadd" />
         <activity android:name=".searchpage" />
         <activity android:name=".homebage" />
         <activity android:name=".add_item" />
