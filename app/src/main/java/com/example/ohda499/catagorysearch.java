@@ -139,7 +139,8 @@ SearchView searchView;
 
         ref = FirebaseDatabase.getInstance().getReference().child("items");
 
-
+        recyclerView =v.findViewById(R.id.rv);
+        searchView = v.findViewById(R.id.searchView);
 
 
 
