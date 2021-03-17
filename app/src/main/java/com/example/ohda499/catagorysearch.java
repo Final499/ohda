@@ -105,14 +105,24 @@ SearchView searchView;
         }
         if (searchView!=null){
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+
+
                 @Override
                 public boolean onQueryTextSubmit(String query) {
+
                     return false;
                 }
 
                 @Override
                 public boolean onQueryTextChange(String s) {
-                    search(s);
+                    if (s.length()==0) {
+                        recyclerView.setVisibility(View.INVISIBLE);
+                    }else {
+                        recyclerView.setVisibility(View.VISIBLE);
+                        search(s);
+                    }
+
                     return true;
                 }
             });
@@ -122,14 +132,17 @@ SearchView searchView;
     private void search(String str){
         ArrayList<masseges> myLest = new ArrayList<>();
         for (masseges object : list){
-            if (object.getDescription().toLowerCase().contains(str.toLowerCase())){
+            if (object.getFilename().toLowerCase().contains(str.toLowerCase())){
 
                 myLest.add(object);
             }
         }
+
+
         AdapterClass adapterClass =new AdapterClass(myLest);
         recyclerView.setAdapter(adapterClass);
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
