@@ -91,7 +91,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Sport";
                 intent.putExtra("1",spo);
@@ -103,7 +103,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Farming";
                 intent.putExtra("1",spo);
@@ -115,7 +115,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Electronics";
                 intent.putExtra("1",spo);
@@ -127,7 +127,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Carpentry";
                 intent.putExtra("1",spo);
@@ -139,7 +139,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Plumber";
                 intent.putExtra("1",spo);
@@ -151,7 +151,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Furniture";
                 intent.putExtra("1",spo);
@@ -162,7 +162,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Cooking";
                 intent.putExtra("1",spo);
@@ -173,7 +173,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Trips";
                 intent.putExtra("1",spo);
@@ -184,7 +184,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Cars";
                 intent.putExtra("1",spo);
@@ -195,7 +195,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Medical";
                 intent.putExtra("1",spo);
@@ -206,7 +206,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Animals";
                 intent.putExtra("1",spo);
@@ -217,7 +217,7 @@ String  st1;
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
+                Intent intent = new Intent(getActivity(),type.class);
                 intent.putExtra("phone",st1);
                 String spo="Others";
                 intent.putExtra("1",spo);

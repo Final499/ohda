@@ -22,9 +22,11 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 public class profiled extends Fragment {
     EditText mFullName, mEmail, mPassword, mPhone;
-    Button mRegisterBtn, mlogin;
+    Button mRegisterBtn, mlogin, bb;
      TextView  hAcount;
     FirebaseDatabase rootnode;
+
+
 
     private Button mUpdate;
 
@@ -80,12 +82,20 @@ public class profiled extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_profiled, container, false);
+        bb = v.findViewById(R.id.button);
         Reference=FirebaseDatabase.getInstance().getReference("users");
         System.out.println(Reference);
         name= v.findViewById(R.id.NewName);
         email=v.findViewById(R.id.NewEmail);
         password =v.findViewById(R.id.NewPassward);
         mUpdate =v.findViewById(R.id.Update);
+        bb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),ItemThatIadd.class);
+                startActivity(intent);
+            }
+        });
 
 
         showAllUserData();
@@ -173,6 +183,7 @@ public class profiled extends Fragment {
         _email=intent.getStringExtra("email");
         _password =intent.getStringExtra("password");
         _phone =intent.getStringExtra("phone");
+        intent.putExtra("phone", _phone);
 
 
         System.out.println(_name);

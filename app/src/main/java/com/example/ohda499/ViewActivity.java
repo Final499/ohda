@@ -21,9 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class ViewActivity extends AppCompatActivity {
-TextView fn , ty, de;
+TextView fn , ty, de,ty2;
 ImageView imageView;
-Button co;
+Button co , back;
 DatabaseReference ref ;
     String phone;
     @Override
@@ -35,8 +35,17 @@ DatabaseReference ref ;
         imageView = findViewById(R.id.imageDe);
         fn = findViewById(R.id.fileName);
         ty = findViewById(R.id.type);
+        ty2 = findViewById(R.id.type2);
         de = findViewById(R.id.des);
         co = findViewById(R.id.con);
+        back = findViewById(R.id.button4);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewActivity.this,home.class);
+                startActivity(intent);
+            }
+        });
         ref = FirebaseDatabase.getInstance().getReference().child("items");
 
         String key = getIntent().getStringExtra("fname");
@@ -47,12 +56,15 @@ DatabaseReference ref ;
                 if(snapshot.exists()){
                     String fName = snapshot.child("filename").getValue().toString();
                     String tyname = snapshot.child("type").getValue().toString();
+                    String tyname2 = snapshot.child("type2").getValue().toString();
                     String deName = snapshot.child("description").getValue().toString();
                     String imageName = snapshot.child("mImageUrl").getValue().toString();
                     phone = snapshot.child("phoneid").getValue().toString();
                     Picasso.get().load(imageName).into(imageView);
                     fn.setText(fName);
                     ty.setText(tyname);
+                    ty2.setText(tyname2);
+
                     de.setText(deName);
                     phone.substring(1);
 

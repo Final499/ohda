@@ -126,46 +126,18 @@ public class cataadd extends AppCompatActivity {
                         String type = type1.getEditableText().toString().trim();
                         //   Upload upload = new Upload(uri.toString(),descrabtion,filname);
                         String catagory =getIntent().getStringExtra("1");
+                        String typ =getIntent().getStringExtra("2");
                         System.out.println(catagory);
                         System.out.println(st1);
 
-                        switch (catagory){
-                            case "Sport":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
+                        switch (typ){
+                            case "Donate":
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type,typ);
                                 break;
-                            case "Farming":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
+                            case "Lend":
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type,typ);
                                 break;
-                            case "Electronics":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
-                                break;
-                            case "Carpentry":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
-                                break;
-                            case "Plumber":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
-                                break;
-                            case "Furniture":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
-                                break;
-                            case "Cooking":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
-                                break;
-                            case "Trips":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
-                                break;
-                            case "Cars":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
-                                break;
-                            case "Medical":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
-                                break;
-                            case "Animals":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
-                                break;
-                            case "Others":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type);
-                                break;
+
                         }
                         //generat key
                         String uplodId = root.push().getKey();
