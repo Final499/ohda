@@ -38,14 +38,7 @@ DatabaseReference ref ;
         ty2 = findViewById(R.id.type2);
         de = findViewById(R.id.des);
         co = findViewById(R.id.con);
-        back = findViewById(R.id.button4);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ViewActivity.this,home.class);
-                startActivity(intent);
-            }
-        });
+
         ref = FirebaseDatabase.getInstance().getReference().child("items");
 
         String key = getIntent().getStringExtra("fname");
