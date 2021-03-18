@@ -8,6 +8,18 @@
     tools:context=".profiled">
 
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textColor="#437EE8"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/NewName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/NewName"
         android:layout_width="260dp"
@@ -53,6 +65,7 @@
         android:layout_marginBottom="288dp"
 
         android:text="Update"
+        app:backgroundTint="#437EE8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -64,6 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="140dp"
         android:text="Button"
+        app:backgroundTint="#437EE8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

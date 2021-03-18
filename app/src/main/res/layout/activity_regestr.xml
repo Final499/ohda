@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/newup"
     android:id="@+id/regesternmain"
     tools:context=".regestr"
     >
-
 
 
     <TextView
@@ -16,7 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rigester "
-        android:textSize="24sp"
+        android:textColor="#437EE8"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -96,6 +96,7 @@
         android:layout_width="138dp"
         android:layout_height="52dp"
         android:text="Register"
+        app:backgroundTint="#437EE8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
@@ -108,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="164dp"
-        android:text="You have account ! login here"
+        android:text="You have an account ? Login here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

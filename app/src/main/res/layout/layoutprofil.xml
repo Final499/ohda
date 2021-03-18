@@ -66,8 +66,8 @@
             android:layout_marginStart="206dp"
             android:layout_marginEnd="96dp"
             android:layout_marginBottom="171dp"
-            android:text="Item Name :"
-            android:textColor="@color/black"
+            android:text="Item Name:"
+            android:textColor="#437EE8"
             android:textSize="15dp" />
 
         <TextView
@@ -80,8 +80,8 @@
             android:layout_marginStart="207dp"
             android:layout_marginEnd="128dp"
             android:layout_marginBottom="103dp"
-            android:text="Item Type : "
-            android:textColor="@color/black"
+            android:text="Item Type:"
+            android:textColor="#437EE8"
             android:textSize="15dp" />
 
         />
