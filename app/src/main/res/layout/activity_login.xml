@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/loginmain"
-
+    android:background="@drawable/newup"
     tools:context=".Login">
 
 
@@ -14,13 +14,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wellcome to Ohda "
+        android:textColor="#437EE8"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.131" />
+        app:layout_constraintVertical_bias="0.389" />
+
+    <TextView
+        android:id="@+id/logintxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="#437EE8"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.507" />
 
     <EditText
         android:id="@+id/email"
@@ -28,16 +41,14 @@
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="464dp"
+        android:layout_marginBottom="400dp"
         android:ems="10"
         android:hint="Phone"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.892" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
 
@@ -56,7 +67,7 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email"
-        app:layout_constraintVertical_bias="0.054"
+        app:layout_constraintVertical_bias="0.095"
 
         />
 
@@ -64,20 +75,21 @@
         android:id="@+id/loginbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="244dp"
+        android:layout_marginTop="32dp"
         android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="#437EE8"
+        app:layout_constraintBottom_toTopOf="@+id/haveAcount"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.841" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/haveAcount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="164dp"
-        android:text="You don't have account ! register here"
+        android:text="You don't have an account ! Register here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
