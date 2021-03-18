@@ -4,16 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/newup"
     tools:context=".catagorysearch"
     android:orientation="vertical">
 
-      <SearchView
-            android:id="@+id/searchView"
+      <TextView
+          android:id="@+id/textView10"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-            android:padding="10dp"
-          app:queryHint="Search"
-            android:layout_margin="5dp"/>
+          android:text="Search"
+          android:textColor="#437EE8"
+          android:textSize="36sp"
+          android:translationX="150dp"
+          android:translationY="60dp" />
+
+      <SearchView
+          android:id="@+id/searchView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="5dp"
+          android:padding="10dp"
+          android:translationY="100dp"
+          app:queryHint="Search" />
 
       <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/rv"

@@ -3,10 +3,13 @@ package com.example.ohda499;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -30,6 +33,9 @@ public AdapterClass(ArrayList<masseges> list)
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
     myViewHolder.id.setText(list.get(i).getFilename());
     myViewHolder.desc.setText(list.get(i).getDescription());
+       Picasso.get().load(list.get(i).getmImageUrl()).into(myViewHolder.image);
+
+
     }
 
     @Override
@@ -39,10 +45,13 @@ public AdapterClass(ArrayList<masseges> list)
 
     class MyViewHolder extends RecyclerView.ViewHolder {
     TextView id ,desc;
+    ImageView image;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             id= itemView.findViewById(R.id.fileName);
             desc= itemView.findViewById(R.id.description);
+            image= itemView.findViewById(R.id.image_search);
+
         }
     }
 }

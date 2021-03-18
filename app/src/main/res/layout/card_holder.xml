@@ -8,15 +8,19 @@
     app:cardElevation="5dp"
     >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/fileName"
-            android:layout_width="match_parent"
+            android:layout_width="239dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="160dp"
             android:padding="10dp"
             android:text="fileName"
             android:textSize="25dp"
@@ -24,12 +28,28 @@
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="match_parent"
+            android:layout_width="239dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="160dp"
             android:padding="10sp"
             android:text="description" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/image_search"
+            android:layout_width="93dp"
+            android:layout_height="88dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="19dp"
+            android:layout_marginVertical="10dp"
+            android:layout_marginLeft="100dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+    </RelativeLayout>
 
     <View
         android:id="@+id/view"

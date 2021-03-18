@@ -2,6 +2,7 @@ package com.example.ohda499;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -30,7 +31,7 @@ public class ItemThatIadd extends AppCompatActivity {
         setContentView(R.layout.activity_item_that_iadd);
         Intent intent= getIntent();
         ph=intent.getStringExtra("phone");
-        recyclerView = (RecyclerView)findViewById(R.id.recyclerview);
+        recyclerView = (RecyclerView)findViewById(R.id.recv);
          databaseReference = FirebaseDatabase.getInstance().getReference().child("items");
         options = new FirebaseRecyclerOptions.Builder<masseges>().setQuery(databaseReference,masseges.class).build();
         adapter = new FirebaseRecyclerAdapter<masseges, myAdabter>(options) {
@@ -60,11 +61,36 @@ public class ItemThatIadd extends AppCompatActivity {
 
             @NonNull
             @Override
-            public myAdabter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_item_that_iadd,parent,false);
+            public myAdabter onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.masseg_item,parent,false);
 
                 return new myAdabter(view);
             }
         };
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(ItemThatIadd.this.getApplicationContext(),1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (adapter!=null)
+            adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        if (adapter!=null)
+            adapter.stopListening();
+        super.onStop();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adapter!=null)
+            adapter.startListening();
+
     }
 }
