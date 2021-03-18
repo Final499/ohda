@@ -34,7 +34,7 @@ DatabaseReference ref ;
         setContentView(R.layout.activity_view);
         imageView = findViewById(R.id.imageDe);
         fn = findViewById(R.id.fileName);
-        ty = findViewById(R.id.type);
+        ty = findViewById(R.id.adress);
         ty2 = findViewById(R.id.type2);
         de = findViewById(R.id.des);
         co = findViewById(R.id.con);
@@ -48,7 +48,7 @@ DatabaseReference ref ;
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     String fName = snapshot.child("filename").getValue().toString();
-                    String tyname = snapshot.child("type").getValue().toString();
+                    String tyname = snapshot.child("userAdress").getValue().toString();
                     String tyname2 = snapshot.child("type2").getValue().toString();
                     String deName = snapshot.child("description").getValue().toString();
                     String imageName = snapshot.child("mImageUrl").getValue().toString();

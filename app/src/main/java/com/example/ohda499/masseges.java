@@ -6,20 +6,30 @@ public class masseges {
     String catagory ;
     String mImageUrl;
     String phoneid;
-    String type;
+    String userAdress;
+    String type2;
 
     public masseges() {
 
     }
 
-    public masseges(String filename, String description, String catagory, String mImageUrl,String phoneid,String type) {
+    public masseges(String filename, String description, String catagory, String mImageUrl,String phoneid,String userAdress,String type2) {
 
         this.filename = filename;
         this.description = description;
         this.catagory = catagory;
         this.mImageUrl = mImageUrl;
         this.phoneid = phoneid;
-        this.type = type;
+        this.userAdress = userAdress;
+        this.type2 = type2;
+    }
+
+    public String getType2() {
+        return type2;
+    }
+
+    public void setType2(String type2) {
+        this.type2 = type2;
     }
 
     public String getFilename() {
@@ -62,11 +72,11 @@ public class masseges {
         this.phoneid = phoneid;
     }
 
-    public String getType() {
-        return type;
+    public String getUserAdress() {
+        return userAdress;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setUserAdress(String userAdress) {
+        this.userAdress = userAdress;
     }
 }
