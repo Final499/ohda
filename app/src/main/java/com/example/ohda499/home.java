@@ -91,7 +91,7 @@ public class home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_home, container, false);
+            View v = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = (RecyclerView)v.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("items");

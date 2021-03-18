@@ -89,7 +89,8 @@ public class cataadd extends AppCompatActivity {
             public void onClick(View v) {
                 if(mImageUri !=null){
                     uploadeTofirbase(mImageUri);
-
+                    Intent intent = new Intent(cataadd.this,homebage.class);
+           startActivity(intent);
                 }else{
                     Toast.makeText(cataadd.this, "Pleas Select Image", Toast.LENGTH_SHORT).show();
                 }
