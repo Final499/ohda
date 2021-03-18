@@ -52,7 +52,7 @@ public class ItemThatIadd extends AppCompatActivity {
 
 
                 holder.filename.setText(model.getFilename());
-                holder.type.setText(model.getType());
+                holder.userAdress.setText(model.getUserAdress());
 
 
 

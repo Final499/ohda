@@ -48,7 +48,7 @@ DatabaseReference ref ;
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     String fName = snapshot.child("filename").getValue().toString();
-                    String tyname = snapshot.child("type").getValue().toString();
+                    String tyname = snapshot.child("userAdress").getValue().toString();
                     String tyname2 = snapshot.child("type2").getValue().toString();
                     String deName = snapshot.child("description").getValue().toString();
                     String imageName = snapshot.child("mImageUrl").getValue().toString();

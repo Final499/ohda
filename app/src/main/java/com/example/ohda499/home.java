@@ -117,7 +117,8 @@ public class home extends Fragment {
 
 
                 holder.filename.setText(model.getFilename());
-                holder.type.setText(model.getType());
+                holder.userAdress.setText(model.getUserAdress());
+                holder.type2.setText(model.getType2());
 
 
                 holder.v.setOnClickListener(new View.OnClickListener() {

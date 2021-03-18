@@ -123,7 +123,7 @@ public class cataadd extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         String descrabtion = editTextdes.getEditableText().toString().trim();
                         String filname = fileNamelauout.getEditableText().toString().trim();
-                        String type = type1.getEditableText().toString().trim();
+                        String userAdress = type1.getEditableText().toString().trim();
                         //   Upload upload = new Upload(uri.toString(),descrabtion,filname);
                         String catagory =getIntent().getStringExtra("1");
                         String typ =getIntent().getStringExtra("2");
@@ -132,10 +132,10 @@ public class cataadd extends AppCompatActivity {
 
                         switch (typ){
                             case "Donate":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type,typ);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,userAdress,typ);
                                 break;
                             case "Lend":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,type,typ);
+                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,userAdress,typ);
                                 break;
 
                         }
