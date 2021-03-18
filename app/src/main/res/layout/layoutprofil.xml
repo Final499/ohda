@@ -43,7 +43,7 @@
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/type"
+            android:id="@+id/adress"
             android:layout_width="197dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

@@ -34,7 +34,7 @@ DatabaseReference ref ;
         setContentView(R.layout.activity_view);
         imageView = findViewById(R.id.imageDe);
         fn = findViewById(R.id.fileName);
-        ty = findViewById(R.id.type);
+        ty = findViewById(R.id.adress);
         ty2 = findViewById(R.id.type2);
         de = findViewById(R.id.des);
         co = findViewById(R.id.con);
