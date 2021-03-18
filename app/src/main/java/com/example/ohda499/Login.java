@@ -23,6 +23,8 @@ public class Login extends AppCompatActivity {
     EditText mPassword, mPhoneq;
         Button log;
         TextView noaccount;
+        String h ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class Login extends AppCompatActivity {
         mPassword = findViewById(R.id.password);
         log = findViewById(R.id.loginbutton);
         noaccount = findViewById(R.id.haveAcount);
+
         noaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,17 +114,20 @@ public class Login extends AppCompatActivity {
                  if (passDB.equals(userpass)) {
                      mPassword.setError(null);
                      String emailDB = snapshot.child(userphone).child("email").getValue(String.class);
-                     String phoneDB = snapshot.child(userphone).child("phone").getValue(String.class);
+                     String phoneDB  = snapshot.child(userphone).child("phone").getValue(String.class);
                      String nameDB = snapshot.child(userphone).child("fname").getValue(String.class);
 
                      Intent intent = new Intent(getApplicationContext(), homebage.class);
            intent.putExtra("email",emailDB);
            intent.putExtra("fname",nameDB);
            intent.putExtra("password",passDB);
-           intent.putExtra("phone",phoneDB);
+          intent.putExtra("phone",phoneDB);
          //  System.out.println(phoneDB);
                      startActivity(intent);
                      finish();
+
+
+
 
                  } else {
                      mPassword.setError("Wrong Password");

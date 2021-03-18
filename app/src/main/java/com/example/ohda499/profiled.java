@@ -84,7 +84,7 @@ public class profiled extends Fragment {
         View v = inflater.inflate(R.layout.fragment_profiled, container, false);
         bb = v.findViewById(R.id.button);
         Reference=FirebaseDatabase.getInstance().getReference("users");
-        System.out.println(Reference);
+
         name= v.findViewById(R.id.NewName);
         email=v.findViewById(R.id.NewEmail);
         password =v.findViewById(R.id.NewPassward);
@@ -93,6 +93,7 @@ public class profiled extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),ItemThatIadd.class);
+                intent.putExtra("phone", _phone);
                 startActivity(intent);
             }
         });
@@ -178,6 +179,7 @@ public class profiled extends Fragment {
     }
     private void showAllUserData() {
 
+
         Intent intent= getActivity().getIntent();
         _name=intent.getStringExtra("fname");
         _email=intent.getStringExtra("email");
@@ -186,10 +188,6 @@ public class profiled extends Fragment {
         intent.putExtra("phone", _phone);
 
 
-        System.out.println(_name);
-        System.out.println(_email);
-        System.out.println(_password);
-        System.out.println(_phone);
 
 
         name.setText(_name);
