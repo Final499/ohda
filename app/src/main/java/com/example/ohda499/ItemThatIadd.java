@@ -43,33 +43,35 @@ public class ItemThatIadd extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<masseges, myAdabter>(options) {
             @Override
             protected void onBindViewHolder(@NonNull myAdabter holder, int position, @NonNull masseges model) {
-                Query check = databaseReference.orderByChild("phoneid").equalTo("ph");
+                Query check = databaseReference.orderByChild("phoneid").equalTo(ph);
                 check.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                        if(snapshot.exists()) {
-                            Picasso.get().load(model.getmImageUrl()).into(holder.i1, new Callback() {
-                                @Override
-                                public void onSuccess() {
+      if(snapshot.exists()) {
 
-                                }
+          Picasso.get().load(model.getmImageUrl()).into(holder.i1, new Callback() {
+              @Override
+              public void onSuccess() {
 
-                                @Override
-                                public void onError(Exception e) {
-                                    Toast.makeText(ItemThatIadd.this.getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+              }
 
-                                }
-                            });
+              @Override
+              public void onError(Exception e) {
+                  Toast.makeText(ItemThatIadd.this.getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+
+              }
+          });
 
 
-                            holder.filename.setText(model.getFilename());
-                            holder.userAdress.setText(model.getUserAdress());
-                            holder.type2.setText(model.getType2());
+          holder.filename.setText(model.getFilename());
+          holder.userAdress.setText(model.getUserAdress());
+          holder.type2.setText(model.getType2());
 
-                        }else {
-                            Toast.makeText(ItemThatIadd.this.getApplicationContext(), "no Item ", Toast.LENGTH_LONG).show();
-                        }
+      }else {
+          Toast.makeText(ItemThatIadd.this.getApplicationContext(), "no Item ", Toast.LENGTH_LONG).show();
+          recyclerView.setVisibility(View.INVISIBLE);
+      }
 
                     }
 
