@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="140dp"
         android:orientation="vertical">
 
         <TextView
@@ -43,10 +43,24 @@
             android:layout_height="88dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="19dp"
             android:layout_marginVertical="10dp"
             android:layout_marginLeft="100dp"
+            android:layout_marginEnd="19dp"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/con4"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="67dp"
+            android:layout_marginEnd="65dp"
+            android:layout_marginBottom="0dp"
+            android:textColor="@color/white"
+            app:backgroundTint="#48E843"
+            android:text="Contact With Owner in WhatsApp" />
 
 
     </RelativeLayout>

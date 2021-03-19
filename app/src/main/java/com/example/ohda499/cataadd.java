@@ -58,6 +58,7 @@ public class cataadd extends AppCompatActivity {
     private Spinner mspinner;
     Upload upload;
     private DatabaseReference root ;
+    private DatabaseReference root2 ;
     private StorageReference reference ;
 
     @Override
@@ -114,6 +115,7 @@ public class cataadd extends AppCompatActivity {
         System.out.println(st1);
 
         root = FirebaseDatabase.getInstance().getReference("items");
+        root2 = FirebaseDatabase.getInstance().getReference("items");
         reference = FirebaseStorage.getInstance().getReference();
         final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
         fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -130,13 +132,14 @@ public class cataadd extends AppCompatActivity {
                         String typ =getIntent().getStringExtra("2");
                         System.out.println(catagory);
                         System.out.println(st1);
+                        System.out.println("--------------------");
 
                         switch (typ){
                             case "Donate":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,userAdress,typ);
+                                upload = new Upload(uri.toString(),descrabtion,filname,st1,userAdress,typ);
                                 break;
                             case "Lend":
-                                upload = new Upload(uri.toString(),descrabtion,filname,catagory,st1,userAdress,typ);
+                                upload = new Upload(uri.toString(),descrabtion,filname,st1,userAdress,typ);
                                 break;
 
                         }

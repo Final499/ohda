@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OHDA499">
-        <activity android:name=".type"></activity>
+        <activity android:name=".ViewDelet"></activity>
+        <activity android:name=".type" />
         <activity android:name=".ItemThatIadd" />
         <activity android:name=".ViewActivity" />
         <activity android:name=".cataadd" />

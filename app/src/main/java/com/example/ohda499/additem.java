@@ -23,7 +23,9 @@ public class additem extends Fragment {
 
     private Button sport , farming ,electronics,Carpentry,plumbing,furniture,kitchen_utensil,camping,cars, medical_miscellaneous, animal_supplies,others;
 
-String  st1;
+
+    private Button bor , len;
+    String st1 , st2;
 
     private DatabaseReference root ;
     private StorageReference reference ;
@@ -73,154 +75,37 @@ String  st1;
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_additem, container, false);
 
-        sport = v.findViewById(R.id.sportsb);
-        farming = v.findViewById(R.id.farmingb);
-        electronics = v.findViewById(R.id.electronicsb);
-        Carpentry = v.findViewById(R.id.carpentryb);
-        plumbing = v.findViewById(R.id.plumbingb);
-        furniture = v.findViewById(R.id.furnitureb);
-        kitchen_utensil = v.findViewById(R.id.kitchen_utensilb);
-        camping = v.findViewById(R.id.campingb);
-        cars = v.findViewById(R.id.carb);
-        medical_miscellaneous = v.findViewById(R.id.medical_miscellaneousb);
-        animal_supplies = v.findViewById(R.id.animal_suppliesb);
-        others = v.findViewById(R.id.othersb);
+        bor = v.findViewById(R.id.button2);
+        len = v.findViewById(R.id.button3);
+        Intent in = getActivity().getIntent();
+        st1 =in.getStringExtra("phone");
+        String catagory =getActivity().getIntent().getStringExtra("1");
 
-        sport.setOnClickListener(new View.OnClickListener() {
+
+        bor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
+
+                Intent intent = new Intent(getActivity(),cataadd.class);
                 intent.putExtra("phone",st1);
-                String spo="Sport";
-                intent.putExtra("1",spo);
+                String tt="Donate";
+                intent.putExtra("2",tt);
+
                 startActivity(intent);
             }
         });
-        farming.setOnClickListener(new View.OnClickListener() {
+        len.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = getActivity().getIntent();
                 st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
+                Intent intent = new Intent(getActivity(),cataadd.class);
+                String tt="Lend";
+                intent.putExtra("2",tt);
                 intent.putExtra("phone",st1);
-                String spo="Farming";
-                intent.putExtra("1",spo);
-                startActivity(intent);
-            }
-        });
-        electronics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
-                intent.putExtra("phone",st1);
-                String spo="Electronics";
-                intent.putExtra("1",spo);
-                startActivity(intent);
-            }
-        });
-        Carpentry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
-                intent.putExtra("phone",st1);
-                String spo="Carpentry";
-                intent.putExtra("1",spo);
-                startActivity(intent);
-            }
-        });
-        plumbing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
-                intent.putExtra("phone",st1);
-                String spo="Plumber";
-                intent.putExtra("1",spo);
-                startActivity(intent);
-            }
-        });
-        furniture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
-                intent.putExtra("phone",st1);
-                String spo="Furniture";
-                intent.putExtra("1",spo);
-                startActivity(intent);
-            }
-        });  kitchen_utensil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
-                intent.putExtra("phone",st1);
-                String spo="Cooking";
-                intent.putExtra("1",spo);
-                startActivity(intent);
-            }
-        });  camping.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
-                intent.putExtra("phone",st1);
-                String spo="Trips";
-                intent.putExtra("1",spo);
-                startActivity(intent);
-            }
-        });  cars.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
-                intent.putExtra("phone",st1);
-                String spo="Cars";
-                intent.putExtra("1",spo);
-                startActivity(intent);
-            }
-        });  medical_miscellaneous.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
-                intent.putExtra("phone",st1);
-                String spo="Medical";
-                intent.putExtra("1",spo);
-                startActivity(intent);
-            }
-        });  animal_supplies.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
-                intent.putExtra("phone",st1);
-                String spo="Animals";
-                intent.putExtra("1",spo);
-                startActivity(intent);
-            }
-        });  others.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),type.class);
-                intent.putExtra("phone",st1);
-                String spo="Others";
-                intent.putExtra("1",spo);
+
                 startActivity(intent);
             }
         });

@@ -12,11 +12,12 @@
           android:id="@+id/textView10"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:text="Search"
+          android:text="Quick Access"
           android:textColor="#437EE8"
+          android:layout_gravity="center"
+          android:layout_marginLeft="60dp"
           android:textSize="36sp"
-          android:translationX="150dp"
-          android:translationY="60dp" />
+         />
 
       <SearchView
           android:id="@+id/searchView"
@@ -24,13 +25,14 @@
           android:layout_height="wrap_content"
           android:layout_margin="5dp"
           android:padding="10dp"
-          android:translationY="100dp"
+          android:translationY="10dp"
           app:queryHint="Search" />
 
       <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/rv"
           android:layout_width="match_parent"
-          android:layout_height="match_parent"
+
+          android:layout_height="600dp"
           android:visibility="invisible"
           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 

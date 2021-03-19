@@ -44,11 +44,13 @@ public class ItemThatIadd extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull myAdabter holder, int position, @NonNull masseges model) {
                 Query check = databaseReference.orderByChild("phoneid").equalTo(ph);
+                System.out.println(check);
                 check.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-      if(snapshot.exists()) {
+                     if(snapshot.exists()) {
+
 
           Picasso.get().load(model.getmImageUrl()).into(holder.i1, new Callback() {
               @Override
@@ -58,7 +60,7 @@ public class ItemThatIadd extends AppCompatActivity {
 
               @Override
               public void onError(Exception e) {
-                  Toast.makeText(ItemThatIadd.this.getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                  Toast.makeText(ItemThatIadd.this.getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG)  .show();
 
               }
           });
@@ -67,6 +69,17 @@ public class ItemThatIadd extends AppCompatActivity {
           holder.filename.setText(model.getFilename());
           holder.userAdress.setText(model.getUserAdress());
           holder.type2.setText(model.getType2());
+
+
+                         holder.v.setOnClickListener(new View.OnClickListener() {
+                             @Override
+                             public void onClick(View v) {
+                                 Intent intent = new Intent(ItemThatIadd.this,ViewDelet.class);
+                                 intent.putExtra("fname",getRef(position).getKey());
+                                 startActivity(intent);
+
+                             }
+                         });
 
       }else {
           Toast.makeText(ItemThatIadd.this.getApplicationContext(), "no Item ", Toast.LENGTH_LONG).show();
@@ -90,9 +103,14 @@ public class ItemThatIadd extends AppCompatActivity {
             @NonNull
             @Override
             public myAdabter onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.masseg_item,parent,false);
+                View view ;
 
-                return new myAdabter(view);
+                    view = LayoutInflater.from(parent.getContext()).inflate(R.layout.masseg_item,parent,false);
+
+                    return new myAdabter(view);
+
+
+
             }
         };
         GridLayoutManager gridLayoutManager = new GridLayoutManager(ItemThatIadd.this.getApplicationContext(),1);

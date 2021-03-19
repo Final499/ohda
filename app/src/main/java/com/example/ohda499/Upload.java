@@ -2,20 +2,20 @@ package com.example.ohda499;
 
 public class Upload {
 
-    private String mSpinner,ImageUrl,mImageUrl2,mImageUrl3, description , filename , catagory,phoneid , userAdress ,type2;
+    private String mSpinner,ImageUrl,mImageUrl2,mImageUrl3, description , filename , phoneid , userAdress ,type2;
 
     public Upload() {
         //empty constructor needed
     }
 
-    public Upload(String imageUrl, String description , String filename ,String catagory, String phoneid, String userAdress, String type2) {
+    public Upload(String imageUrl, String description , String filename , String phoneid, String userAdress, String type2) {
 
 
         this.phoneid=phoneid;
         this.ImageUrl = imageUrl;
         this.description=description;
         this.filename = filename;
-        this.catagory = catagory;
+
         this.userAdress = userAdress;
         this.type2 = type2;
 
@@ -70,12 +70,5 @@ public class Upload {
         this.ImageUrl = ImageUrl;
     }
 
-    public String getCatagory() {
-        return catagory;
-    }
-
-    public void setCatagory(String catagory) {
-        this.catagory = catagory;
-    }
 }
 

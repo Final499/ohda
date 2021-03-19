@@ -108,6 +108,9 @@ SearchView searchView;
 
 
 
+
+
+
                 @Override
                 public boolean onQueryTextSubmit(String query) {
 
@@ -157,9 +160,20 @@ SearchView searchView;
 
 
 
+
+
+
         return v;
     }
 
+
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.searchView:
+                searchView.onActionViewExpanded();
+                break;
+        }
+    }
 
 
 
