@@ -86,6 +86,7 @@ public class regestr extends AppCompatActivity {
 
         reference.child(password).setValue(help);
         Intent intent = new Intent(regestr.this,homebage.class);
+        intent.putExtra("phone",password);
        startActivity(intent);
         finish();
      //   FragmentTransaction Frag = getSupportFragmentManager().beginTransaction();

@@ -125,14 +125,33 @@ public class  additem extends Fragment {
         len.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
-                Intent intent = new Intent(getActivity(),cataadd.class);
-                String tt="Lend";
-                intent.putExtra("2",tt);
-                intent.putExtra("phone",st1);
+                Query ch = FirebaseDatabase.getInstance().getReference("items").orderByChild("phoneid").equalTo(st1);
+                ch.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            Toast.makeText(getActivity(), "you already added item please delete it before adding another one", Toast.LENGTH_LONG).show();
 
-                startActivity(intent);
+                        }else{
+                            Intent in = getActivity().getIntent();
+                            st1 =in.getStringExtra("phone");
+                            Intent intent = new Intent(getActivity(),cataadd.class);
+                            String tt="Lend";
+                            intent.putExtra("2",tt);
+                            intent.putExtra("phone",st1);
+
+                            startActivity(intent);
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
             }
         });
 
