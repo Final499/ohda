@@ -17,7 +17,7 @@ public class myAdabter extends RecyclerView.ViewHolder {
         userAdress = (TextView)itemView.findViewById(R.id.adress);
         type2 = (TextView)itemView.findViewById(R.id.textView9);
         filename = (TextView)itemView.findViewById(R.id.namef);
-        i1 = (ImageView)itemView.findViewById(R.id.imageview);
+        i1 = (ImageView)itemView.findViewById(R.id.imageviewg);
         v=itemView;
 
 

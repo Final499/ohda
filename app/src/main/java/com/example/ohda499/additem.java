@@ -3,14 +3,21 @@ package com.example.ohda499;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
 
@@ -19,7 +26,7 @@ import com.google.firebase.storage.StorageReference;
  * Use the {@link additem#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class additem extends Fragment {
+public class  additem extends Fragment {
 
     private Button sport , farming ,electronics,Carpentry,plumbing,furniture,kitchen_utensil,camping,cars, medical_miscellaneous, animal_supplies,others;
 
@@ -79,21 +86,40 @@ public class additem extends Fragment {
         len = v.findViewById(R.id.button3);
         Intent in = getActivity().getIntent();
         st1 =in.getStringExtra("phone");
-        String catagory =getActivity().getIntent().getStringExtra("1");
+
+
 
 
         bor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = getActivity().getIntent();
-                st1 =in.getStringExtra("phone");
+                Query ch = FirebaseDatabase.getInstance().getReference("items").orderByChild("phoneid").equalTo(st1);
+                ch.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            Toast.makeText(getActivity(), "you already added item please delete it before adding another one", Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(getActivity(),cataadd.class);
-                intent.putExtra("phone",st1);
-                String tt="Donate";
-                intent.putExtra("2",tt);
+                        }else{
+                            Intent in = getActivity().getIntent();
+                            st1 =in.getStringExtra("phone");
 
-                startActivity(intent);
+                            Intent intent = new Intent(getActivity(),cataadd.class);
+                            intent.putExtra("phone",st1);
+                            String tt="Donate";
+                            intent.putExtra("2",tt);
+
+                            startActivity(intent);
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
             }
         });
         len.setOnClickListener(new View.OnClickListener() {

@@ -67,8 +67,13 @@ public class ViewDelet extends AppCompatActivity {
 
                     de.setText(deName);
 
-
-
+                    co.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("items").child(phone);
+                            ref.removeValue();
+                        }
+                    });
 
                 }
             }
@@ -78,31 +83,6 @@ public class ViewDelet extends AppCompatActivity {
 
             }
         });
-        co.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                Query check = ref.child("items").orderByChild("phoneid").equalTo(phone);
-                check.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for(DataSnapshot ch:snapshot.getChildren()){
-                            ch.getRef().child(phone).removeValue();
-                        }
-                        Intent intent = new Intent(ViewDelet.this,homebage.class);
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                    }
-                });
-
-
-
-            }
-        });
-
 
 
 

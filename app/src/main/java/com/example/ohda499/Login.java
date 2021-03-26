@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +27,8 @@ public class Login extends AppCompatActivity {
         Button log;
         TextView noaccount;
         String h ;
-
+    CheckBox keeplog;
+SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ public class Login extends AppCompatActivity {
         mPassword = findViewById(R.id.password);
         log = findViewById(R.id.loginbutton);
         noaccount = findViewById(R.id.haveAcount);
+
 
         noaccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +128,19 @@ public class Login extends AppCompatActivity {
            intent.putExtra("password",passDB);
           intent.putExtra("phone",phoneDB);
          //  System.out.println(phoneDB);
+                     keeplog = (CheckBox) findViewById(R.id.checkBox);
+                     boolean isChecked = false;
+                     keeplog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                         @Override
+                         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                             SharedPreferences set = getSharedPreferences("PREFS_NAME", 0);
+                             SharedPreferences.Editor editor = set.edit();
+                             editor.putBoolean("isChecked",isChecked);
+                             editor.commit();
+                         }
+                     });
+
+
                      startActivity(intent);
                      finish();
 

@@ -145,7 +145,7 @@ public class cataadd extends AppCompatActivity {
                         }
                         //generat key
                         String uplodId = root.push().getKey();
-                        root.child(uplodId).setValue(upload);
+                        root.child(st1).setValue(upload);
                         mProgressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(cataadd.this, "Uploaded Successfully ", Toast.LENGTH_SHORT).show();
 
