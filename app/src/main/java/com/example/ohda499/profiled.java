@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -22,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 public class profiled extends Fragment {
     EditText mFullName, mEmail, mPassword, mPhone;
-    Button mRegisterBtn, mlogin, bb;
+    Button mRegisterBtn, mlogin, bb,logout;
      TextView  hAcount;
     FirebaseDatabase rootnode;
 
@@ -33,6 +34,8 @@ public class profiled extends Fragment {
     private EditText name,email, password ,phone;
     String _name,_email, _password,_phone;
     DatabaseReference Reference;
+    private FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+
 
 
 
@@ -83,12 +86,27 @@ public class profiled extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_profiled, container, false);
         bb = v.findViewById(R.id.button);
+        logout = v.findViewById(R.id.logout);
         Reference=FirebaseDatabase.getInstance().getReference("users");
 
         name= v.findViewById(R.id.NewName);
         email=v.findViewById(R.id.NewEmail);
         password =v.findViewById(R.id.NewPassward);
         mUpdate =v.findViewById(R.id.Update);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+        Intent intent=new Intent(getActivity(),Login.class);
+        startActivity(intent);
+        getActivity().finish();
+                Toast.makeText(getActivity(), "out", Toast.LENGTH_SHORT).show();
+
+
+        System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+
+            }
+        });
         bb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -231,6 +249,8 @@ public class profiled extends Fragment {
             return false;
         }
     }
+
+
 
 
 }
