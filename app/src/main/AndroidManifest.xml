@@ -19,6 +19,7 @@
         <activity android:name=".cataadd" />
         <activity android:name=".searchpage" />
         <activity android:name=".homebage" />
+
         <activity android:name=".add_item" />
         <activity android:name=".Login" />
         <activity android:name=".regestr" />

@@ -93,7 +93,7 @@ public class ItemThatIadd extends AppCompatActivity {
                              public void onClick(View v) {
                                  DatabaseReference ref = FirebaseDatabase.getInstance().getReference("items").child(ph);
                                  ref.removeValue();
-                                 Intent in = new Intent(ItemThatIadd.this,home.class);
+                                 Intent in = new Intent(ItemThatIadd.this,homebage.class);
                                  startActivity(in);
                              }
                          });
