@@ -21,6 +21,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <EditText
+        android:id="@+id/fileName"
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@+id/button_choose_image"
+        android:hint="Enter Item name"
+        app:layout_constraintBottom_toTopOf="@+id/addtype"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="191dp"
@@ -89,18 +103,5 @@
         app:layout_constraintBottom_toTopOf="@+id/button_upload"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
-
-    <EditText
-        android:id="@+id/numberofdays"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:hint="Number Of Days to borrow"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
