@@ -64,6 +64,8 @@ public class cataadd extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+
 
         setContentView(R.layout.activity_cataadd);
         mButtonChooseImage = findViewById(R.id.button_choose_image);

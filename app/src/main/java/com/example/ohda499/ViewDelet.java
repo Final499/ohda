@@ -34,6 +34,7 @@ public class ViewDelet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_view_delet);
         imageView = findViewById(R.id.imageDe);
         fn = findViewById(R.id.fileName);

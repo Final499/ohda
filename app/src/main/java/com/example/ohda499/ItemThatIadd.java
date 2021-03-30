@@ -41,6 +41,8 @@ public class ItemThatIadd extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_item_that_iadd);
         DELE= findViewById(R.id.button4);
         g= findViewById(R.id.imageviewg);

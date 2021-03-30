@@ -30,6 +30,7 @@ DatabaseReference ref ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+      getSupportActionBar().hide();
         String hu = "Hello";
 
         setContentView(R.layout.activity_view);

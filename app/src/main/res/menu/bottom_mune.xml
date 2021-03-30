@@ -9,7 +9,7 @@
         android:title="Add Item" />
     <item android:id="@+id/catagorysearch"
         android:icon="@drawable/searg"
-        android:title="Serach" />
+        android:title="Quick Access" />
     <item android:id="@+id/profiled"
         android:icon="@drawable/pro"
         android:title="profile" />
