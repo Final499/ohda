@@ -4,9 +4,14 @@ public class helper {
 
     String fname, email, phone,password;
 
-    public helper() {
-
+    public helper(String email) {
+        this.email = email;
     }
+    public helper(String phone,int g) {
+        this.phone = phone;
+    }
+
+
 
     public helper(String fname, String email,String phone ,String password) {
         this.fname = fname;
@@ -46,7 +51,26 @@ public class helper {
         this.password = password;
     }
 
+    public boolean valid_Email(String f){
+        String a;
+        a=this.email;
+        if (a.equals(f)){
+            return true;
+        }else {
+            return false;
+        }
 
+    }
+    public boolean valid_Phone (String f){
+        String a;
+        a=this.phone;
+        if (a.equals(f)){
+            return true;
+        }else {
+            return false;
+        }
+
+    }
 
 
 }

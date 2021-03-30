@@ -2,23 +2,15 @@ package com.example.ohda499;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -94,7 +86,7 @@ public class regestr extends AppCompatActivity {
 
 
                 }else {
-                    if (!validname() | !valiemail() | !validPhone() | !validPass()) {
+                    if (!validname() | !valiemail(email,0) | !validPhone(phone,0) | !validPass()) {
                         return;
                     }
                     helper help = new helper(fullname, email, phone, password);
@@ -134,18 +126,25 @@ public class regestr extends AppCompatActivity {
 
     }
 
-    private boolean valiemail() {
-        String valu = mEmail.getEditableText().toString().trim();
+    public boolean valiemail(String valu,int i) {
+
+        if (i==0){
+            valu = mEmail.getEditableText().toString().trim();
+        }
+
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
         if (valu.isEmpty()) {
+            if (i==0)
             mEmail.setError("Email is required ! ");
             return false;
         } else if (!valu.matches(emailPattern)) {
+            if(i==0)
             mEmail.setError("Invalid email address ! ");
             return false;
 
         } else {
+            if (i==0)
             mEmail.setError(null);
 
             return true;
@@ -153,18 +152,22 @@ public class regestr extends AppCompatActivity {
 
     }
 
-    private boolean validPhone() {
-        String valu = mPhone.getEditableText().toString().trim();
 
+    public boolean validPhone(String valu,int i) {
+        if (i==0) {
+            valu = mPhone.getEditableText().toString().trim();
+        }
         if (valu.isEmpty()) {
-            mPhone.setError("Phone is required ! ");
+            if (i==0)
+                mPhone.setError("Phone is required ! ");
             return false;
-        } else if (mPhone.length() != 10) {
-            mPhone.setError("Phone must be 10 numbers ! ");
+        } else if (valu.length() != 10) {
+            if (i==0)
+                mPhone.setError("Phone must be 10 numbers ! ");
             return false;
         } else {
-
-            mPhone.setError(null);
+            if (i==0)
+                mPhone.setError(null);
 
             return true;
         }
