@@ -19,8 +19,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class regestr extends AppCompatActivity {
     EditText mFullName, mEmail, mPassword, mPhone;
@@ -35,6 +39,7 @@ public class regestr extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regestr);
+        getSupportActionBar().hide();
 
 
         mFullName = findViewById(R.id.fullname);
@@ -74,21 +79,43 @@ public class regestr extends AppCompatActivity {
     }
 
     public void registerUser(View view) {
-        if (!validname() | !valiemail() | !validPhone() | !validPass()) {
-            return;
-        }
+
+
         String fullname = mFullName.getEditableText().toString().trim();
         String email = mEmail.getEditableText().toString().trim();
         String password = mPassword.getEditableText().toString().trim();
         String phone = mPhone.getEditableText().toString().trim();
+        Query check = FirebaseDatabase.getInstance().getReference("users").orderByChild("phone").equalTo(phone);
+        check.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    Toast.makeText(regestr.this, "Phone alredy exiset ", Toast.LENGTH_SHORT).show();
 
-        helper help = new helper(fullname, email, password, phone);
 
-        reference.child(password).setValue(help);
-        Intent intent = new Intent(regestr.this,homebage.class);
-        intent.putExtra("phone",password);
-       startActivity(intent);
-        finish();
+                }else {
+                    if (!validname() | !valiemail() | !validPhone() | !validPass()) {
+                        return;
+                    }
+                    helper help = new helper(fullname, email, phone, password);
+
+                    reference.child(phone).setValue(help);
+                    Intent intent = new Intent(regestr.this,homebage.class);
+                    intent.putExtra("phone",phone);
+                    startActivity(intent);
+                    finish();
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
      //   FragmentTransaction Frag = getSupportFragmentManager().beginTransaction();
        // Frag.replace(R.id.regesternmain,new home()).commit();
 
@@ -127,17 +154,17 @@ public class regestr extends AppCompatActivity {
     }
 
     private boolean validPhone() {
-        String valu = mPassword.getEditableText().toString().trim();
+        String valu = mPhone.getEditableText().toString().trim();
 
         if (valu.isEmpty()) {
-            mPassword.setError("Phone is required ! ");
+            mPhone.setError("Phone is required ! ");
             return false;
-        } else if (mPassword.length() != 10) {
-            mPassword.setError("Phone must be 10 numbers ! ");
+        } else if (mPhone.length() != 10) {
+            mPhone.setError("Phone must be 10 numbers ! ");
             return false;
         } else {
 
-            mPassword.setError(null);
+            mPhone.setError(null);
 
             return true;
         }
@@ -146,7 +173,7 @@ public class regestr extends AppCompatActivity {
 
 
     private boolean validPass(){
-        String valu = mPhone.getEditableText().toString().trim();
+        String valu = mPassword.getEditableText().toString().trim();
         String passvald= "^" +
                 //"(?=.*[0-9])" +         //at least 1 digit
                 //"(?=.*[a-z])" +         //at least 1 lower case letter
@@ -157,15 +184,15 @@ public class regestr extends AppCompatActivity {
                 ".{4,}" +               //at least 4 characters
                 "$";
         if(valu.isEmpty()){
-            mPhone.setError("Password is required ! ");
+            mPassword.setError("Password is required ! ");
             return false;
         }else if(!valu.matches(passvald)){
-            mPhone.setError("Password is weak !");
+            mPassword.setError("Password is weak !");
            return false;
 
         }
         else{
-            mPhone.setError(null);
+            mPassword.setError(null);
             return true;
         }
 

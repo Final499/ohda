@@ -64,6 +64,7 @@ public class cataadd extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_cataadd);
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
@@ -133,21 +134,25 @@ public class cataadd extends AppCompatActivity {
                         System.out.println(catagory);
                         System.out.println(st1);
                         System.out.println("--------------------");
+                       try {
+                           switch (typ){
+                               case "Donate":
+                                   upload = new Upload(uri.toString(),descrabtion,filname,st1,userAdress,typ);
+                                   break;
+                               case "Lend":
+                                   upload = new Upload(uri.toString(),descrabtion,filname,st1,userAdress,typ);
+                                   break;
 
-                        switch (typ){
-                            case "Donate":
-                                upload = new Upload(uri.toString(),descrabtion,filname,st1,userAdress,typ);
-                                break;
-                            case "Lend":
-                                upload = new Upload(uri.toString(),descrabtion,filname,st1,userAdress,typ);
-                                break;
+                           }
+                           //generat key
+                           String uplodId = root.push().getKey();
+                           root.child(st1).setValue(upload);
+                           mProgressBar.setVisibility(View.INVISIBLE);
+                           Toast.makeText(cataadd.this, "Uploaded Successfully ", Toast.LENGTH_SHORT).show();
+                       }catch (Exception e){
+                           Toast.makeText(cataadd.this, "You just added items please delete that item if you want to add another ", Toast.LENGTH_SHORT).show();
+                       }
 
-                        }
-                        //generat key
-                        String uplodId = root.push().getKey();
-                        root.child(st1).setValue(upload);
-                        mProgressBar.setVisibility(View.INVISIBLE);
-                        Toast.makeText(cataadd.this, "Uploaded Successfully ", Toast.LENGTH_SHORT).show();
 
 
                     }

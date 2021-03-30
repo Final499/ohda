@@ -84,6 +84,7 @@ public class home extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+
         recyclerView = (RecyclerView)v.findViewById(R.id.recv);
         recyclerView.setHasFixedSize(true);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("items");
@@ -91,7 +92,6 @@ public class home extends Fragment {
         adapter = new FirebaseRecyclerAdapter<masseges, myAdabter>(options) {
             @Override
             protected void onBindViewHolder(@NonNull myAdabter holder, int position, @NonNull masseges model) {
-
 
                 Picasso.get().load(model.getmImageUrl()).into(holder.i1, new Callback() {
                     @Override

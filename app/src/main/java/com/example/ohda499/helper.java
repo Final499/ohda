@@ -11,8 +11,9 @@ public class helper {
     public helper(String fname, String email,String phone ,String password) {
         this.fname = fname;
         this.email = email;
-        this.password = password;
         this.phone = phone;
+        this.password = password;
+
     }
 
     public String getFname() {
@@ -30,6 +31,13 @@ public class helper {
     public void setEmail(String email) {
         this.email = email;
     }
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
     public String getPassword() {
         return password;
     }
@@ -38,13 +46,7 @@ public class helper {
         this.password = password;
     }
 
-    public String getPhone() {
-        return phone;
-    }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
 
 }

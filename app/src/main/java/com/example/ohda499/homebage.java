@@ -20,6 +20,7 @@ public class homebage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homebage);
+        getSupportActionBar().hide();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigation);
         NavController navController = Navigation.findNavController(this,R.id.fragment2);

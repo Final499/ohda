@@ -1,19 +1,30 @@
 package com.example.ohda499;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +36,7 @@ public class profiled extends Fragment {
     EditText mFullName, mEmail, mPassword, mPhone;
     Button mRegisterBtn, mlogin, bb,logout;
      TextView  hAcount;
-    FirebaseDatabase rootnode;
+    DatabaseReference databaseReference;
 
 
 
@@ -196,21 +207,51 @@ public class profiled extends Fragment {
 
     }
     private void showAllUserData() {
-
-
         Intent intent= getActivity().getIntent();
+        _phone =intent.getStringExtra("phone");
+
+
+        Query check = FirebaseDatabase.getInstance().getReference("users").orderByChild("phone").equalTo(_phone);
+        check.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()) {
+
+                    String email1 = snapshot.child(_phone).child("email").getValue(String.class);
+                    String pass = snapshot.child(_phone).child("password").getValue(String.class);
+                    String fname = snapshot.child(_phone).child("fname").getValue(String.class);
+
+
+                    name.setText(fname);
+                    email.setText(email1);
+                    password.setText(pass);
+
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+
         _name=intent.getStringExtra("fname");
         _email=intent.getStringExtra("email");
         _password =intent.getStringExtra("password");
-        _phone =intent.getStringExtra("phone");
+
         intent.putExtra("phone", _phone);
 
 
 
 
-        name.setText(_name);
-        email.setText(_email);
-        password.setText(_password);
+
 
 
     }

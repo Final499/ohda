@@ -4,6 +4,7 @@ public class Upload {
 
     private String mSpinner,ImageUrl,mImageUrl2,mImageUrl3, description , filename , phoneid , userAdress ,type2;
 
+
     public Upload() {
         //empty constructor needed
     }
@@ -15,12 +16,14 @@ public class Upload {
         this.ImageUrl = imageUrl;
         this.description=description;
         this.filename = filename;
-
         this.userAdress = userAdress;
         this.type2 = type2;
 
 
+
     }
+
+
 
     public String getType2() {
         return type2;

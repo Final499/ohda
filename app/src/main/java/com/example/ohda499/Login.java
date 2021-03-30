@@ -33,6 +33,7 @@ SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
         mPhoneq = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
