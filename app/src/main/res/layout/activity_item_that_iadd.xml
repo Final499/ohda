@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/newup"
+    android:background="@drawable/bgtest"
     tools:context=".ItemThatIadd">
 
 
@@ -124,7 +124,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="60dp"
-        android:text="Delet"
+        android:text="Delete"
+        app:backgroundTint="#437EE8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.562"

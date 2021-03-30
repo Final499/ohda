@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgtest"
     tools:context=".ViewDelet">
     <TextView
         android:id="@+id/fileName"
