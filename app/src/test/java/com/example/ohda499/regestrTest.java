@@ -14,7 +14,7 @@ class regestrTest {
     @Test
     void validPhone() {
         regestr rg = new regestr();
-        String em ="0506556102";
-        assertTrue(rg.validPhone(em,1));
+        String ph ="0506556102";
+        assertTrue(rg.validPhone(ph,1));
     }
 }

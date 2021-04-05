@@ -31,7 +31,7 @@ public class  additem extends Fragment {
     private Button sport , farming ,electronics,Carpentry,plumbing,furniture,kitchen_utensil,camping,cars, medical_miscellaneous, animal_supplies,others;
 
 
-    private Button bor , len;
+    private Button donate , len;
     String st1 , st2;
 
     private DatabaseReference root ;
@@ -82,7 +82,7 @@ public class  additem extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_additem, container, false);
 
-        bor = v.findViewById(R.id.button2);
+        donate = v.findViewById(R.id.button2);
         len = v.findViewById(R.id.button3);
         Intent in = getActivity().getIntent();
         st1 =in.getStringExtra("phone");
@@ -90,7 +90,8 @@ public class  additem extends Fragment {
 
 
 
-        bor.setOnClickListener(new View.OnClickListener() {
+
+        donate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Query ch = FirebaseDatabase.getInstance().getReference("items").orderByChild("phoneid").equalTo(st1);

@@ -76,7 +76,14 @@ public class ViewDelet extends AppCompatActivity {
                         }
                     });
 
+                }else {
+                    fn.setVisibility(View.INVISIBLE);
+                    ty.setVisibility(View.INVISIBLE);
+                    ty2.setVisibility(View.INVISIBLE);
+                    de.setVisibility(View.INVISIBLE);
+
                 }
+
             }
 
             @Override

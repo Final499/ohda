@@ -96,7 +96,7 @@ public class cataadd extends AppCompatActivity {
                     Intent intent = new Intent(cataadd.this,homebage.class);
            startActivity(intent);
                 }else{
-                    Toast.makeText(cataadd.this, "Pleas Select Image", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(cataadd.this, "please Select Image", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -110,15 +110,13 @@ public class cataadd extends AppCompatActivity {
             mImageView.setImageURI(mImageUri);
 
         }
-
     }
     private void uploadeTofirbase(Uri uri){
 
         st1 =getIntent().getStringExtra("phone");
-        System.out.println(st1);
+
 
         root = FirebaseDatabase.getInstance().getReference("items");
-        root2 = FirebaseDatabase.getInstance().getReference("items");
         reference = FirebaseStorage.getInstance().getReference();
         final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
         fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -131,23 +129,13 @@ public class cataadd extends AppCompatActivity {
                         String filname = fileNamelauout.getEditableText().toString().trim();
                         String userAdress = type1.getEditableText().toString().trim();
                         //   Upload upload = new Upload(uri.toString(),descrabtion,filname);
-                        String catagory =getIntent().getStringExtra("1");
+
                         String typ =getIntent().getStringExtra("2");
-                        System.out.println(catagory);
+
                         System.out.println(st1);
                         System.out.println("--------------------");
                        try {
-                           switch (typ){
-                               case "Donate":
-                                   upload = new Upload(uri.toString(),descrabtion,filname,st1,userAdress,typ);
-                                   break;
-                               case "Lend":
-                                   upload = new Upload(uri.toString(),descrabtion,filname,st1,userAdress,typ);
-                                   break;
-
-                           }
-                           //generat key
-                           String uplodId = root.push().getKey();
+                           upload = new Upload(uri.toString(),descrabtion,filname,st1,userAdress,typ);
                            root.child(st1).setValue(upload);
                            mProgressBar.setVisibility(View.INVISIBLE);
                            Toast.makeText(cataadd.this, "Uploaded Successfully ", Toast.LENGTH_SHORT).show();

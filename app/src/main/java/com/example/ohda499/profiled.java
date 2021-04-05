@@ -116,8 +116,6 @@ public class profiled extends Fragment {
                 Toast.makeText(getActivity(), "out", Toast.LENGTH_SHORT).show();
 
 
-        System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
-
             }
         });
         bb.setOnClickListener(new View.OnClickListener() {

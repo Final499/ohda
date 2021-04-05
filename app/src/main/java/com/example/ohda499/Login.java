@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
         Button log;
         TextView noaccount;
         String h ;
-    CheckBox keeplog;
+
 SharedPreferences sharedPreferences;
 
     @Override
@@ -129,17 +129,6 @@ SharedPreferences sharedPreferences;
            intent.putExtra("password",passDB);
           intent.putExtra("phone",phoneDB);
          //  System.out.println(phoneDB);
-                     keeplog = (CheckBox) findViewById(R.id.checkBox);
-                     boolean isChecked = false;
-                     keeplog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                         @Override
-                         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                             SharedPreferences set = getSharedPreferences("PREFS_NAME", 0);
-                             SharedPreferences.Editor editor = set.edit();
-                             editor.putBoolean("isChecked",isChecked);
-                             editor.commit();
-                         }
-                     });
 
 
                      startActivity(intent);

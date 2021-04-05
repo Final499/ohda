@@ -44,7 +44,7 @@ DatabaseReference ref ;
         ref = FirebaseDatabase.getInstance().getReference().child("items");
 
         String key = getIntent().getStringExtra("fname");
-        System.out.println(key);
+
 
         ref.child(key).addValueEventListener(new ValueEventListener() {
             @Override
